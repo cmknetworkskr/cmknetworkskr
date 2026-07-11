@@ -87,8 +87,8 @@ test("server-renders each company section as its own route", async () => {
     /게임을 비롯해 IT, 취미, 이슈 상품의 예약판매 소식과 출시 소식을 안내합니다\./,
   );
   assert.match(services, /https:\/\/yepan\.net/);
-  assert.match(services, /background-image:url\(\/yepan-net\.jpg\)/);
-  assert.match(services, /brand-visual-yepan/);
+  assert.match(services, /background-image:url\(\/yepan-net\.png\)/);
+  assert.match(services, /brand-visual-yepan brand-visual-plain/);
   assert.match(services, /예판런/);
   assert.match(
     services,
@@ -100,7 +100,7 @@ test("server-renders each company section as its own route", async () => {
   );
   assert.match(services, /https:\/\/yepan\.run/);
   assert.match(services, /background-image:url\(\/yepan-run\.png\)/);
-  assert.match(services, /brand-visual-run/);
+  assert.match(services, /brand-visual-run brand-visual-plain/);
   assert.equal((services.match(/>방문하기</g) ?? []).length, 2);
   assert.doesNotMatch(services, /yepan\.(?:net|run) 방문/);
 

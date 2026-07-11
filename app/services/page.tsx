@@ -44,9 +44,9 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div
-                className="service-visual service-brand-visual brand-visual-yepan"
+                className="service-visual service-brand-visual brand-visual-yepan brand-visual-plain"
                 aria-hidden="true"
-                style={{ backgroundImage: `url(${assetHref("/yepan-net.jpg")})` }}
+                style={{ backgroundImage: `url(${assetHref("/yepan-net.png")})` }}
               />
               <a
                 className="service-link"
@@ -73,7 +73,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div
-                className="service-visual service-brand-visual brand-visual-run"
+                className="service-visual service-brand-visual brand-visual-run brand-visual-plain"
                 aria-hidden="true"
                 style={{ backgroundImage: `url(${assetHref("/yepan-run.png")})` }}
               />
