@@ -894,25 +894,30 @@ a:hover .arrow {
   background: var(--ink);
 }
 
-.service-status {
+.service-link {
   position: relative;
   z-index: 3;
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  justify-content: space-between;
+  gap: 24px;
   width: fit-content;
   margin-top: auto;
-  color: #777f90;
-  font-size: 12px;
-  font-weight: 650;
+  padding: 11px 15px;
+  border: 1px solid rgba(17, 21, 34, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 750;
+  backdrop-filter: blur(8px);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 
-.service-status i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #c4c8d2;
-  box-shadow: 0 0 0 4px rgba(196, 200, 210, 0.23);
+.service-link:hover {
+  border-color: rgba(79, 70, 229, 0.28);
+  background: var(--white);
+  transform: translateY(-2px);
 }
 
 .careers {

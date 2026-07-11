@@ -210,7 +210,7 @@ export default function Home() {
                   <span className="service-count">01</span>
                 </div>
                 <div className="service-card-copy">
-                  <h3>커뮤니티 플랫폼</h3>
+                  <h3>예판넷</h3>
                   <p>관심사와 정보를 나누고 서로 연결되는 온라인 커뮤니티입니다.</p>
                 </div>
                 <div className="service-visual community-visual" aria-hidden="true">
@@ -220,10 +220,16 @@ export default function Home() {
                   <i />
                   <i />
                 </div>
-                <div className="service-status">
-                  <i aria-hidden="true" />
-                  운영 사이트 정보 업데이트 예정
-                </div>
+                <a
+                  className="service-link"
+                  href="https://yepan.net"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="예판넷 새 탭에서 방문"
+                >
+                  yepan.net 방문
+                  <Arrow />
+                </a>
               </article>
 
               <article className="service-card commerce-card">
@@ -232,8 +238,8 @@ export default function Home() {
                   <span className="service-count">02</span>
                 </div>
                 <div className="service-card-copy">
-                  <h3>온라인 스토어</h3>
-                  <p>다양한 상품을 편리하게 살펴보고 선택할 수 있는 온라인 쇼핑몰입니다.</p>
+                  <h3>예판런</h3>
+                  <p>콘솔 게임과 관련 상품을 만나볼 수 있는 온라인 스토어입니다.</p>
                 </div>
                 <div className="service-visual commerce-visual" aria-hidden="true">
                   <span />
@@ -241,10 +247,16 @@ export default function Home() {
                   <span />
                   <i />
                 </div>
-                <div className="service-status">
-                  <i aria-hidden="true" />
-                  운영 사이트 정보 업데이트 예정
-                </div>
+                <a
+                  className="service-link"
+                  href="https://yepan.run"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="예판런 새 탭에서 방문"
+                >
+                  yepan.run 방문
+                  <Arrow />
+                </a>
               </article>
             </div>
           </div>
