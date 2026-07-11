@@ -18,7 +18,6 @@ export default function ContactPage() {
   return (
     <main id="main" className="inner-page">
       <PageIntro
-        index="05"
         label="PARTNERSHIP"
         title={
           <>

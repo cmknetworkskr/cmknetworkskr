@@ -36,7 +36,6 @@ export default function MarketplacesPage() {
   return (
     <main id="main" className="inner-page">
       <PageIntro
-        index="03"
         label="MARKETPLACES"
         title="입점 사이트"
         description={

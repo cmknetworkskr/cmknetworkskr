@@ -29,7 +29,6 @@ export default function AboutPage() {
   return (
     <main id="main" className="inner-page">
       <PageIntro
-        index="01"
         label="ABOUT US"
         title={
           <>
