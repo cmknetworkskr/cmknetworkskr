@@ -40,6 +40,9 @@ test("server-renders the CMK Networks homepage", async () => {
   assert.match(html, /https:\/\/yepan\.run/);
   assert.match(html, /id="careers"/);
   assert.match(html, /id="contact"/);
+  assert.match(html, /씨엠케이네트웍스\(CMK NETWORKS\)/);
+  assert.match(html, /337-59-00837/);
+  assert.match(html, /2025-인천연수구-1734/);
   assert.match(html, /본문 바로가기/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
