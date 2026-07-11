@@ -55,13 +55,10 @@ export default function MarketplacesPage() {
           </div>
 
           <div className="service-grid marketplace-grid">
-            {marketplaces.map((marketplace, index) => (
+            {marketplaces.map((marketplace) => (
               <article className="service-card commerce-card marketplace-card" key={marketplace.name}>
                 <div className="service-card-top">
                   <span className="service-tag">COMMERCE</span>
-                  <span className="service-count">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                 </div>
                 <div className="service-card-copy">
                   <h3>{marketplace.name}</h3>

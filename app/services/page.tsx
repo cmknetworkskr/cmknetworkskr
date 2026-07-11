@@ -27,14 +27,13 @@ export default function ServicesPage() {
         <div className="shell">
           <div className="content-kicker">
             <p className="section-label">LIVE PLATFORMS</p>
-            <h2 id="service-list-title">지금 운영 중인 서비스</h2>
+            <h2 id="service-list-title">운영 중인 사이트</h2>
           </div>
 
           <div className="service-grid">
             <article className="service-card community-card">
               <div className="service-card-top">
                 <span className="service-tag">COMMUNITY</span>
-                <span className="service-count">01</span>
               </div>
               <div className="service-card-copy">
                 <h3>예판넷</h3>
@@ -63,7 +62,6 @@ export default function ServicesPage() {
             <article className="service-card commerce-card">
               <div className="service-card-top">
                 <span className="service-tag">COMMERCE</span>
-                <span className="service-count">02</span>
               </div>
               <div className="service-card-copy">
                 <h3>예판런</h3>
