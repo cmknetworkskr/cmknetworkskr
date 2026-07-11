@@ -12,7 +12,6 @@ export default function ServicesPage() {
   return (
     <main id="main" className="inner-page">
       <PageIntro
-        index="02"
         label="OUR SERVICES"
         title="운영 사이트"
         description={

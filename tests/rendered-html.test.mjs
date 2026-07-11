@@ -77,6 +77,7 @@ test("server-renders each company section as its own route", async () => {
     const html = await response.text();
     assert.match(html, expected);
     assert.match(html, /씨엠케이네트웍스\(CMK NETWORKS\)/);
+    assert.doesNotMatch(html, />0[1-5] · /);
   }
 
   const services = await (await render("/services")).text();
