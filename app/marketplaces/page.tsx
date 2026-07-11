@@ -68,7 +68,7 @@ export default function MarketplacesPage() {
                   <p>{marketplace.description}</p>
                 </div>
                 <div
-                  className={`service-visual service-brand-visual brand-visual-${marketplace.imageTone}`}
+                  className={`service-visual service-brand-visual brand-visual-${marketplace.imageTone} brand-visual-plain`}
                   aria-hidden="true"
                   style={{ backgroundImage: `url(${assetHref(marketplace.image)})` }}
                 />
