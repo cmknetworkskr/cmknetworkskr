@@ -45,8 +45,8 @@ export default function ContactPage() {
               기다리고 있습니다.
             </h2>
             <p>
-              제안 배경과 기대하는 협업 방식, 관련 자료를 함께 준비해 주시면
-              담당 채널이 열리는 대로 빠르게 검토할 수 있습니다.
+              제안 배경과 기대하는 협업 방식, 관련 자료를 함께 보내주시면
+              확인 후 답변드리겠습니다.
             </p>
           </div>
 
@@ -64,13 +64,7 @@ export default function ContactPage() {
               ))}
             </div>
             <div className="contact-ready">
-              <div>
-                <span>CONTACT</span>
-                <strong>제휴 문의 채널 준비 중</strong>
-              </div>
-              <span className="round-arrow" aria-hidden="true">
-                ↗
-              </span>
+              <a href="mailto:admin@cmknetworks.kr">admin@cmknetworks.kr</a>
             </div>
           </div>
         </div>
