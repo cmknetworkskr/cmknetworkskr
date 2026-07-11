@@ -1263,40 +1263,27 @@ a:hover .arrow {
 .contact-ready {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 23px;
   border-radius: 18px;
   background: var(--ink);
   color: var(--white);
 }
 
-.contact-ready div {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+.contact-ready a {
+  color: var(--white);
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: var(--mint);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: color 180ms ease;
 }
 
-.contact-ready div span {
-  color: #969eb0;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.contact-ready strong {
-  font-size: 15px;
-}
-
-.round-arrow {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--mint);
-  color: var(--ink);
-  font-family: Arial, sans-serif;
-  font-size: 18px;
+.contact-ready a:hover {
+  color: var(--mint);
 }
 
 .site-footer {

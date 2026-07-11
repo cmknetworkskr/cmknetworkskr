@@ -65,6 +65,11 @@ test("server-renders each company section as its own route", async () => {
   assert.match(services, /https:\/\/yepan\.net/);
   assert.match(services, /예판런/);
   assert.match(services, /https:\/\/yepan\.run/);
+
+  const contact = await (await render("/contact")).text();
+  assert.match(contact, /href="mailto:admin@cmknetworks\.kr"/);
+  assert.match(contact, />admin@cmknetworks\.kr<\/a>/);
+  assert.doesNotMatch(contact, /제휴 문의 채널 준비 중|<form/i);
 });
 
 test("keeps shared chrome separate and removes starter-only preview code", async () => {
