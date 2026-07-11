@@ -85,10 +85,18 @@ test("server-renders each company section as its own route", async () => {
 
   const marketplaces = await (await render("/marketplaces")).text();
   assert.match(marketplaces, /입점 사이트/);
-  assert.match(marketplaces, /예판넷/);
-  assert.match(marketplaces, /https:\/\/yepan\.net/);
-  assert.match(marketplaces, /예판런/);
-  assert.match(marketplaces, /https:\/\/yepan\.run/);
+  assert.match(marketplaces, /네이버 스마트스토어/);
+  assert.match(marketplaces, /국내 최대 포털 사이트인 네이버 쇼핑에 입점되어 있습니다\./);
+  assert.match(marketplaces, /https:\/\/mkt\.shopping\.naver\.com\/link\/6938ffccb150e663241afc39/);
+  assert.match(marketplaces, /카카오 톡딜/);
+  assert.match(marketplaces, /국내 최다 사용자 메신저인 카카오톡 내 톡딜에 입점되어 있습니다\./);
+  assert.match(marketplaces, /https:\/\/store\.kakao\.com\/nintendo/);
+  assert.match(marketplaces, /컬리/);
+  assert.match(marketplaces, /국내 최대 새벽배송 전문 쇼핑몰인 컬리에 입점되어 있습니다\./);
+  assert.match(marketplaces, /https:\/\/kurly\.com/);
+  assert.equal((marketplaces.match(/>COMMERCE</g) ?? []).length, 3);
+  assert.equal((marketplaces.match(/>방문하기</g) ?? []).length, 3);
+  assert.doesNotMatch(marketplaces, /예판넷|예판런|yepan\.net|yepan\.run/);
 
   const contact = await (await render("/contact")).text();
   assert.match(contact, /href="mailto:admin@cmknetworks\.kr"/);
