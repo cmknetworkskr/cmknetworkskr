@@ -1,6 +1,6 @@
 import { PageIntro } from "../_components/page-intro";
 import { Arrow } from "../_components/site-chrome";
-import { createPageMetadata } from "../_lib/site";
+import { assetHref, createPageMetadata } from "../_lib/site";
 
 export const metadata = createPageMetadata({
   title: "운영 사이트",
@@ -43,13 +43,11 @@ export default function ServicesPage() {
                   게임을 비롯해 IT, 취미, 이슈 상품의 예약판매 소식과 출시 소식을 안내합니다.
                 </p>
               </div>
-              <div className="service-visual community-visual" aria-hidden="true">
-                <span className="bubble bubble-one" />
-                <span className="bubble bubble-two" />
-                <i />
-                <i />
-                <i />
-              </div>
+              <div
+                className="service-visual service-brand-visual brand-visual-yepan"
+                aria-hidden="true"
+                style={{ backgroundImage: `url(${assetHref("/yepan-net.jpg")})` }}
+              />
               <a
                 className="service-link"
                 href="https://yepan.net"
@@ -74,12 +72,11 @@ export default function ServicesPage() {
                   Nintendo Switch 상품 뿐만 아니라, 콘솔 게임, 수집용 카드 등 다양한 취미 상품을 판매합니다.
                 </p>
               </div>
-              <div className="service-visual commerce-visual" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-                <i />
-              </div>
+              <div
+                className="service-visual service-brand-visual brand-visual-run"
+                aria-hidden="true"
+                style={{ backgroundImage: `url(${assetHref("/yepan-run.png")})` }}
+              />
               <a
                 className="service-link"
                 href="https://yepan.run"

@@ -1,22 +1,28 @@
 import { PageIntro } from "../_components/page-intro";
 import { Arrow } from "../_components/site-chrome";
-import { createPageMetadata } from "../_lib/site";
+import { assetHref, createPageMetadata } from "../_lib/site";
 
 const marketplaces = [
   {
     name: "네이버 스마트스토어",
     description: "국내 최대 포털 사이트인 네이버 쇼핑에 입점되어 있습니다.",
     href: "https://mkt.shopping.naver.com/link/6938ffccb150e663241afc39",
+    image: "/naver-smartstore.png",
+    imageTone: "naver",
   },
   {
     name: "카카오 톡딜",
     description: "국내 최다 사용자 메신저인 카카오톡 내 톡딜에 입점되어 있습니다.",
     href: "https://store.kakao.com/nintendo",
+    image: "/kakao-talkdeal.png",
+    imageTone: "talkdeal",
   },
   {
     name: "컬리",
     description: "국내 최대 새벽배송 전문 쇼핑몰인 컬리에 입점되어 있습니다.",
-    href: "https://kurly.com",
+    href: "https://lounge.kurly.com/link/VoVA-THZJ",
+    image: "/kurly.png",
+    imageTone: "kurly",
   },
 ];
 
@@ -61,12 +67,11 @@ export default function MarketplacesPage() {
                   <h3>{marketplace.name}</h3>
                   <p>{marketplace.description}</p>
                 </div>
-                <div className="service-visual commerce-visual" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                  <i />
-                </div>
+                <div
+                  className={`service-visual service-brand-visual brand-visual-${marketplace.imageTone}`}
+                  aria-hidden="true"
+                  style={{ backgroundImage: `url(${assetHref(marketplace.image)})` }}
+                />
                 <a
                   className="service-link"
                   href={marketplace.href}

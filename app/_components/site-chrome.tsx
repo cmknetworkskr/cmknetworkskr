@@ -119,7 +119,16 @@ export function SiteFooter() {
           </div>
           <div className="business-item">
             <dt>통신판매업신고</dt>
-            <dd>2025-인천연수구-1734</dd>
+            <dd>
+              <a
+                href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=3375900837"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="통신판매업 신고정보 새 탭에서 확인"
+              >
+                2025-인천연수구-1734
+              </a>
+            </dd>
           </div>
         </dl>
       </div>
