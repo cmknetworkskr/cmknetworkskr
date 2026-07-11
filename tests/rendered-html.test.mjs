@@ -33,6 +33,9 @@ test("server-renders the animated homepage with shared navigation and business f
   assert.match(html, /씨엠케이네트웍스 \| 커뮤니티와 쇼핑몰 운영/);
   assert.match(html, /사람과 취향,/);
   assert.match(html, /class="hero-visual"/);
+  assert.match(html, /class="visual-core" style="background-image:url\(\/favicon\.png\)"/);
+  assert.match(html, /INCHEON · KOREA/);
+  assert.match(html, /EST\.2007/);
   assert.match(html, /href="\/about"/);
   assert.match(html, /href="\/services"/);
   assert.match(html, /href="\/marketplaces"/);
@@ -40,7 +43,13 @@ test("server-renders the animated homepage with shared navigation and business f
   assert.match(html, /href="\/contact"/);
   assert.match(html, /씨엠케이네트웍스\(CMK NETWORKS\)/);
   assert.match(html, /337-59-00837/);
+  assert.match(
+    html,
+    /href="http:\/\/www\.ftc\.go\.kr\/bizCommPop\.do\?wrkr_no=3375900837" target="_blank"/,
+  );
   assert.match(html, /2025-인천연수구-1734/);
+  assert.match(html, /© 2007 CMK Networks/);
+  assert.doesNotMatch(html, /SEOUL · KOREA|EST\. ———|© 2026/);
   assert.match(html, /본문 바로가기/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
@@ -105,19 +114,26 @@ test("server-renders each company section as its own route", async () => {
 });
 
 test("keeps shared chrome separate and removes starter-only preview code", async () => {
-  const [page, layout, chrome, siteConfig, packageJson] = await Promise.all([
+  const [page, layout, chrome, siteConfig, styles, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/_components/site-chrome.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/_lib/site.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /className="hero-visual"/);
+  assert.match(page, /assetHref\("\/favicon\.png"\)/);
+  assert.doesNotMatch(page, /<span>CMK<\/span>|<small>NETWORKS<\/small>/);
   assert.doesNotMatch(page, /id="about"|id="services"|id="careers"|id="contact"/);
   assert.match(layout, /<SiteHeader \/>/);
   assert.match(layout, /<SiteFooter \/>/);
   assert.match(siteConfig, /og\.png/);
+  assert.match(layout, /fonts\.googleapis\.com/);
+  assert.match(layout, /Noto\+Sans\+KR/);
+  assert.match(styles, /--font-sans: "Noto Sans KR", sans-serif/);
+  assert.doesNotMatch(styles, /Pretendard|ui-monospace|SFMono-Regular|Arial/);
   assert.match(chrome, /씨엠케이네트웍스\(CMK NETWORKS\)/);
   assert.match(chrome, /siteHref\(item\.path\)/);
   assert.match(chrome, /assetHref\("\/favicon\.png"\)/);

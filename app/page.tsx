@@ -1,5 +1,5 @@
 import { Arrow } from "./_components/site-chrome";
-import { siteHref } from "./_lib/site";
+import { assetHref, siteHref } from "./_lib/site";
 
 export default function Home() {
   return (
@@ -44,18 +44,18 @@ export default function Home() {
               <i className="node node-mint" />
               <i className="node node-indigo" />
             </div>
-            <div className="visual-core">
-              <span>CMK</span>
-              <small>NETWORKS</small>
-            </div>
+            <div
+              className="visual-core"
+              style={{ backgroundImage: `url(${assetHref("/favicon.png")})` }}
+            />
             <i className="free-node free-node-one" />
             <i className="free-node free-node-two" />
           </div>
         </div>
 
         <div className="hero-index shell" aria-hidden="true">
-          <span>SEOUL · KOREA</span>
-          <span>EST. ———</span>
+          <span>INCHEON · KOREA</span>
+          <span>EST.2007</span>
         </div>
       </section>
     </main>
