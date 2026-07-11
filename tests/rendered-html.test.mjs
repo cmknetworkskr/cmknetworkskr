@@ -62,6 +62,11 @@ test("server-renders each company section as its own route", async () => {
 
   const services = await (await render("/services")).text();
   assert.match(services, /예판넷/);
+  assert.match(services, /2010년에 오픈한 국내 최초, 국내 유일의 예약판매 커뮤니티입니다\./);
+  assert.match(
+    services,
+    /게임을 비롯해 IT, 취미, 이슈 상품의 예약판매 소식과 출시 소식을 안내합니다\./,
+  );
   assert.match(services, /https:\/\/yepan\.net/);
   assert.match(services, /예판런/);
   assert.match(services, /https:\/\/yepan\.run/);
