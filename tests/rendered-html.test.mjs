@@ -65,7 +65,7 @@ test("server-renders the animated homepage with shared navigation and business f
 test("server-renders each company section as its own route", async () => {
   const routes = [
     ["/about", /연결에서 시작되는/],
-    ["/services", /지금 운영 중인 서비스/],
+    ["/services", /운영 중인 사이트/],
     ["/marketplaces", /지금 입점 중인 사이트/],
     ["/careers", /함께 오래 사랑받는/],
     ["/contact", /이런 제안을/],
@@ -80,6 +80,8 @@ test("server-renders each company section as its own route", async () => {
   }
 
   const services = await (await render("/services")).text();
+  assert.match(services, /운영 중인 사이트/);
+  assert.doesNotMatch(services, /지금 운영 중인 서비스|class="service-count"/);
   assert.match(services, /예판넷/);
   assert.match(services, /2007년에 오픈한 국내 최초, 국내 유일의 예약판매 커뮤니티입니다\./);
   assert.match(
@@ -105,6 +107,7 @@ test("server-renders each company section as its own route", async () => {
   assert.doesNotMatch(services, /yepan\.(?:net|run) 방문/);
 
   const marketplaces = await (await render("/marketplaces")).text();
+  assert.doesNotMatch(marketplaces, /class="service-count"/);
   assert.match(marketplaces, /입점 사이트/);
   assert.match(marketplaces, /네이버 스마트스토어/);
   assert.match(marketplaces, /국내 최대 포털 사이트인 네이버 쇼핑에 입점되어 있습니다\./);
@@ -152,6 +155,15 @@ test("keeps shared chrome separate and removes starter-only preview code", async
   assert.match(layout, /Noto\+Sans\+KR/);
   assert.match(styles, /--font-sans: "Noto Sans KR", sans-serif/);
   assert.match(styles, /\.brand-name[\s\S]*?white-space: nowrap/);
+  assert.match(
+    styles,
+    /\.brand-name b,\s*\.brand-name span\s*\{[\s\S]*?color:\s*inherit;[\s\S]*?font-size:\s*19px;[\s\S]*?font-weight:\s*800;/,
+  );
+  assert.match(
+    styles,
+    /\.service-card-copy h3\s*\{[\s\S]*?font-size:\s*30px;[\s\S]*?font-weight:\s*800;/,
+  );
+  assert.doesNotMatch(styles, /\.service-count|\.site-footer \.brand-name span/);
   assert.match(
     styles,
     /\.service-brand-visual\.brand-visual-yepan,\s*\.service-brand-visual\.brand-visual-run\s*\{[\s\S]*?width:\s*160px;[\s\S]*?height:\s*138px;/,
