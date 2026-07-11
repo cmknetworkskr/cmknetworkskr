@@ -34,6 +34,10 @@ test("server-renders the CMK Networks homepage", async () => {
   assert.match(html, /사람과 취향,/);
   assert.match(html, /id="about"/);
   assert.match(html, /id="services"/);
+  assert.match(html, /예판넷/);
+  assert.match(html, /https:\/\/yepan\.net/);
+  assert.match(html, /예판런/);
+  assert.match(html, /https:\/\/yepan\.run/);
   assert.match(html, /id="careers"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /본문 바로가기/);
