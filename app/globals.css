@@ -897,6 +897,25 @@ a:hover .arrow {
   background-color: rgba(255, 231, 228, 0.9);
 }
 
+.service-brand-visual.brand-visual-plain {
+  right: 10px;
+  bottom: 66px;
+  width: 220px;
+  height: 190px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-origin: padding-box;
+  box-shadow: none;
+  filter: drop-shadow(0 18px 22px rgba(17, 21, 34, 0.18));
+}
+
+.service-card:hover .brand-visual-plain {
+  box-shadow: none;
+  filter: drop-shadow(0 24px 26px rgba(17, 21, 34, 0.22));
+}
+
 .brand-visual-naver {
   background-color: rgba(226, 250, 238, 0.9);
 }
