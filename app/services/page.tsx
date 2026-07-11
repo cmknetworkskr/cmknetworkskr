@@ -38,7 +38,10 @@ export default function ServicesPage() {
               </div>
               <div className="service-card-copy">
                 <h3>예판넷</h3>
-                <p>관심사와 정보를 나누고 서로 연결되는 온라인 커뮤니티입니다.</p>
+                <p>
+                  2010년에 오픈한 국내 최초, 국내 유일의 예약판매 커뮤니티입니다.
+                  게임을 비롯해 IT, 취미, 이슈 상품의 예약판매 소식과 출시 소식을 안내합니다.
+                </p>
               </div>
               <div className="service-visual community-visual" aria-hidden="true">
                 <span className="bubble bubble-one" />
