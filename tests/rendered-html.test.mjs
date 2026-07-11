@@ -48,6 +48,14 @@ test("server-renders the animated homepage with shared navigation and business f
     /href="http:\/\/www\.ftc\.go\.kr\/bizCommPop\.do\?wrkr_no=3375900837" target="_blank"/,
   );
   assert.match(html, /2025-인천연수구-1734/);
+  assert.equal(
+    (
+      html.match(
+        /href="http:\/\/www\.ftc\.go\.kr\/bizCommPop\.do\?wrkr_no=3375900837" target="_blank"/g,
+      ) ?? []
+    ).length,
+    2,
+  );
   assert.match(html, /© 2007 CMK Networks/);
   assert.doesNotMatch(html, /SEOUL · KOREA|EST\. ———|© 2026/);
   assert.match(html, /본문 바로가기/);
@@ -79,6 +87,8 @@ test("server-renders each company section as its own route", async () => {
     /게임을 비롯해 IT, 취미, 이슈 상품의 예약판매 소식과 출시 소식을 안내합니다\./,
   );
   assert.match(services, /https:\/\/yepan\.net/);
+  assert.match(services, /background-image:url\(\/yepan-net\.jpg\)/);
+  assert.match(services, /brand-visual-yepan/);
   assert.match(services, /예판런/);
   assert.match(
     services,
@@ -89,6 +99,8 @@ test("server-renders each company section as its own route", async () => {
     /Nintendo Switch 상품 뿐만 아니라, 콘솔 게임, 수집용 카드 등 다양한 취미 상품을 판매합니다\./,
   );
   assert.match(services, /https:\/\/yepan\.run/);
+  assert.match(services, /background-image:url\(\/yepan-run\.png\)/);
+  assert.match(services, /brand-visual-run/);
   assert.equal((services.match(/>방문하기</g) ?? []).length, 2);
   assert.doesNotMatch(services, /yepan\.(?:net|run) 방문/);
 
@@ -97,15 +109,21 @@ test("server-renders each company section as its own route", async () => {
   assert.match(marketplaces, /네이버 스마트스토어/);
   assert.match(marketplaces, /국내 최대 포털 사이트인 네이버 쇼핑에 입점되어 있습니다\./);
   assert.match(marketplaces, /https:\/\/mkt\.shopping\.naver\.com\/link\/6938ffccb150e663241afc39/);
+  assert.match(marketplaces, /background-image:url\(\/naver-smartstore\.png\)/);
+  assert.match(marketplaces, /brand-visual-naver/);
   assert.match(marketplaces, /카카오 톡딜/);
   assert.match(marketplaces, /국내 최다 사용자 메신저인 카카오톡 내 톡딜에 입점되어 있습니다\./);
   assert.match(marketplaces, /https:\/\/store\.kakao\.com\/nintendo/);
+  assert.match(marketplaces, /background-image:url\(\/kakao-talkdeal\.png\)/);
+  assert.match(marketplaces, /brand-visual-talkdeal/);
   assert.match(marketplaces, /컬리/);
   assert.match(marketplaces, /국내 최대 새벽배송 전문 쇼핑몰인 컬리에 입점되어 있습니다\./);
-  assert.match(marketplaces, /https:\/\/kurly\.com/);
+  assert.match(marketplaces, /https:\/\/lounge\.kurly\.com\/link\/VoVA-THZJ/);
+  assert.match(marketplaces, /background-image:url\(\/kurly\.png\)/);
+  assert.match(marketplaces, /brand-visual-kurly/);
   assert.equal((marketplaces.match(/>COMMERCE</g) ?? []).length, 3);
   assert.equal((marketplaces.match(/>방문하기</g) ?? []).length, 3);
-  assert.doesNotMatch(marketplaces, /예판넷|예판런|yepan\.net|yepan\.run/);
+  assert.doesNotMatch(marketplaces, /예판넷|예판런|yepan\.net|yepan\.run|href="https:\/\/kurly\.com"/);
 
   const contact = await (await render("/contact")).text();
   assert.match(contact, /href="mailto:admin@cmknetworks\.kr"/);
@@ -133,6 +151,7 @@ test("keeps shared chrome separate and removes starter-only preview code", async
   assert.match(layout, /fonts\.googleapis\.com/);
   assert.match(layout, /Noto\+Sans\+KR/);
   assert.match(styles, /--font-sans: "Noto Sans KR", sans-serif/);
+  assert.match(styles, /\.brand-name[\s\S]*?white-space: nowrap/);
   assert.doesNotMatch(styles, /Pretendard|ui-monospace|SFMono-Regular|Arial/);
   assert.match(chrome, /씨엠케이네트웍스\(CMK NETWORKS\)/);
   assert.match(chrome, /siteHref\(item\.path\)/);
