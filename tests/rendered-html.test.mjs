@@ -35,6 +35,7 @@ test("server-renders the animated homepage with shared navigation and business f
   assert.match(html, /class="hero-visual"/);
   assert.match(html, /href="\/about"/);
   assert.match(html, /href="\/services"/);
+  assert.match(html, /href="\/marketplaces"/);
   assert.match(html, /href="\/careers"/);
   assert.match(html, /href="\/contact"/);
   assert.match(html, /씨엠케이네트웍스\(CMK NETWORKS\)/);
@@ -48,6 +49,7 @@ test("server-renders each company section as its own route", async () => {
   const routes = [
     ["/about", /연결에서 시작되는/],
     ["/services", /지금 운영 중인 서비스/],
+    ["/marketplaces", /지금 입점 중인 사이트/],
     ["/careers", /함께 오래 사랑받는/],
     ["/contact", /이런 제안을/],
   ];
@@ -62,14 +64,31 @@ test("server-renders each company section as its own route", async () => {
 
   const services = await (await render("/services")).text();
   assert.match(services, /예판넷/);
-  assert.match(services, /2010년에 오픈한 국내 최초, 국내 유일의 예약판매 커뮤니티입니다\./);
+  assert.match(services, /2007년에 오픈한 국내 최초, 국내 유일의 예약판매 커뮤니티입니다\./);
   assert.match(
     services,
     /게임을 비롯해 IT, 취미, 이슈 상품의 예약판매 소식과 출시 소식을 안내합니다\./,
   );
   assert.match(services, /https:\/\/yepan\.net/);
   assert.match(services, /예판런/);
+  assert.match(
+    services,
+    /2025년 오픈한 예판런은 한국닌텐도의 인증을 받은 Nintendo 정식 판매처입니다\./,
+  );
+  assert.match(
+    services,
+    /Nintendo Switch 상품 뿐만 아니라, 콘솔 게임, 수집용 카드 등 다양한 취미 상품을 판매합니다\./,
+  );
   assert.match(services, /https:\/\/yepan\.run/);
+  assert.equal((services.match(/>방문하기</g) ?? []).length, 2);
+  assert.doesNotMatch(services, /yepan\.(?:net|run) 방문/);
+
+  const marketplaces = await (await render("/marketplaces")).text();
+  assert.match(marketplaces, /입점 사이트/);
+  assert.match(marketplaces, /예판넷/);
+  assert.match(marketplaces, /https:\/\/yepan\.net/);
+  assert.match(marketplaces, /예판런/);
+  assert.match(marketplaces, /https:\/\/yepan\.run/);
 
   const contact = await (await render("/contact")).text();
   assert.match(contact, /href="mailto:admin@cmknetworks\.kr"/);
@@ -93,6 +112,7 @@ test("keeps shared chrome separate and removes starter-only preview code", async
   assert.match(siteConfig, /og\.png/);
   assert.match(chrome, /씨엠케이네트웍스\(CMK NETWORKS\)/);
   assert.match(chrome, /siteHref\(item\.path\)/);
+  assert.match(chrome, /assetHref\("\/favicon\.png"\)/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   assert.doesNotMatch(page, /_sites-preview|SkeletonPreview|codex-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview|_sites-preview/);
@@ -100,6 +120,7 @@ test("keeps shared chrome separate and removes starter-only preview code", async
   await Promise.all([
     access(new URL("../app/about/page.tsx", import.meta.url)),
     access(new URL("../app/services/page.tsx", import.meta.url)),
+    access(new URL("../app/marketplaces/page.tsx", import.meta.url)),
     access(new URL("../app/careers/page.tsx", import.meta.url)),
     access(new URL("../app/contact/page.tsx", import.meta.url)),
   ]);

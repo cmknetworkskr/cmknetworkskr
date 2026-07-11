@@ -20,6 +20,7 @@ const socialImageUrl = canonicalBase ? `${canonicalBase}/og.png` : "/og.png";
 export const navigation = [
   { label: "회사 소개", path: "/about" },
   { label: "운영 사이트", path: "/services" },
+  { label: "입점 사이트", path: "/marketplaces" },
   { label: "채용", path: "/careers" },
   { label: "제휴 문의", path: "/contact" },
 ];
