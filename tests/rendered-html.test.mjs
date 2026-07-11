@@ -152,6 +152,10 @@ test("keeps shared chrome separate and removes starter-only preview code", async
   assert.match(layout, /Noto\+Sans\+KR/);
   assert.match(styles, /--font-sans: "Noto Sans KR", sans-serif/);
   assert.match(styles, /\.brand-name[\s\S]*?white-space: nowrap/);
+  assert.match(
+    styles,
+    /\.service-brand-visual\.brand-visual-yepan,\s*\.service-brand-visual\.brand-visual-run\s*\{[\s\S]*?width:\s*160px;[\s\S]*?height:\s*138px;/,
+  );
   assert.doesNotMatch(styles, /Pretendard|ui-monospace|SFMono-Regular|Arial/);
   assert.match(chrome, /씨엠케이네트웍스\(CMK NETWORKS\)/);
   assert.match(chrome, /siteHref\(item\.path\)/);

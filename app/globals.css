@@ -1828,6 +1828,14 @@ a:hover .arrow {
     right: 0;
   }
 
+  .service-brand-visual.brand-visual-yepan,
+  .service-brand-visual.brand-visual-run {
+    right: 6px;
+    bottom: 58px;
+    width: 160px;
+    height: 138px;
+  }
+
   .careers {
     padding-top: 18px;
   }
