@@ -11,7 +11,7 @@ export default function CareersPage() {
   return (
     <main id="main" className="inner-page">
       <PageIntro
-        index="03"
+        index="04"
         label="CAREERS"
         title={
           <>

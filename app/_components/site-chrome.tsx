@@ -1,14 +1,13 @@
-import { navigation, siteHref } from "../_lib/site";
+import { assetHref, navigation, siteHref } from "../_lib/site";
 
 export function Brand() {
   return (
     <span className="brand" aria-label="CMK Networks">
-      <span className="brand-mark" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-        <i />
-      </span>
+      <span
+        className="brand-mark"
+        aria-hidden="true"
+        style={{ backgroundImage: `url(${assetHref("/favicon.png")})` }}
+      />
       <span className="brand-name">
         <b>CMK</b>
         <span>NETWORKS</span>

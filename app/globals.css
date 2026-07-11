@@ -102,28 +102,16 @@ summary:focus-visible {
 }
 
 .brand-mark {
-  display: grid;
-  grid-template-columns: repeat(2, 8px);
-  gap: 3px;
-  padding: 8px;
-  border-radius: 10px;
-  background: var(--indigo);
-  transform: rotate(8deg);
-}
-
-.brand-mark i {
-  width: 8px;
-  height: 8px;
-  border-radius: 3px;
-  background: var(--white);
-}
-
-.brand-mark i:nth-child(2) {
-  background: var(--mint);
-}
-
-.brand-mark i:nth-child(3) {
-  background: var(--coral);
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(96, 59, 156, 0.12);
+  border-radius: 12px;
+  background-color: var(--white);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 7px 18px rgba(44, 28, 76, 0.11);
 }
 
 .brand-name {
@@ -1657,15 +1645,8 @@ a:hover .arrow {
   }
 
   .brand-mark {
-    grid-template-columns: repeat(2, 7px);
-    gap: 2px;
-    padding: 7px;
-    border-radius: 9px;
-  }
-
-  .brand-mark i {
-    width: 7px;
-    height: 7px;
+    width: 38px;
+    height: 38px;
   }
 
   .hero-inner {
@@ -1863,6 +1844,11 @@ a:hover .arrow {
 
   .footer-top {
     gap: 36px;
+  }
+
+  .footer-top nav {
+    flex-wrap: wrap;
+    gap: 16px 22px;
   }
 
   .footer-top nav {
