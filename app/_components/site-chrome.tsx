@@ -106,7 +106,16 @@ export function SiteFooter() {
           </div>
           <div className="business-item">
             <dt>사업자등록번호</dt>
-            <dd>337-59-00837</dd>
+            <dd>
+              <a
+                href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=3375900837"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="사업자등록정보 새 탭에서 확인"
+              >
+                337-59-00837
+              </a>
+            </dd>
           </div>
           <div className="business-item">
             <dt>통신판매업신고</dt>
@@ -116,7 +125,7 @@ export function SiteFooter() {
       </div>
       <div className="shell footer-bottom">
         <span>COMMUNITY &amp; COMMERCE</span>
-        <span>© {new Date().getFullYear()} CMK Networks. All rights reserved.</span>
+        <span>© 2007 CMK Networks. All rights reserved.</span>
       </div>
     </footer>
   );
