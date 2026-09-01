@@ -63,7 +63,7 @@ export default function ContactPage() {
               ))}
             </div>
             <div className="contact-ready">
-              <a href="mailto:admin@cmknetworks.kr">admin@cmknetworks.kr</a>
+              <a href="mailto:admin@cmknetworks.kr">cmknetworks@yepan.net</a>
             </div>
           </div>
         </div>
